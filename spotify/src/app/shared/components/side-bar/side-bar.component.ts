@@ -21,7 +21,7 @@ export class SideBarComponent {
     this.mainMenu.defaultOptions = [
       {
         name: 'Home',
-        icon: 'uil uil-home',
+        icon: 'uil uil-estate',
         router: ['/'],
       },
       {
