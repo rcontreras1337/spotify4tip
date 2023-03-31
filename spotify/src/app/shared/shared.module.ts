@@ -10,13 +10,15 @@ import { HeaderUserComponent } from './components/header-user/header-user.compon
   declarations: [
     SideBarComponent,
     MediaPlayerComponent,
-    HeaderUserComponent
+    HeaderUserComponent,
   ],
   imports: [
     CommonModule
   ],
   exports:[
     SideBarComponent,
+    MediaPlayerComponent,
+    HeaderUserComponent,
   ]
 })
 export class SharedModule { }
