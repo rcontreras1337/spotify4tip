@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class MediaPlayerComponent {
 
   mockCover: any ={
-    cover: '',
+    cover: 'https://i.scdn.co/image/ab67616d0000b27345ca41b0d2352242c7c9d4bc',
     album:'Gioli & Assia',
     name: 'BEBE (Oficial)',
 
