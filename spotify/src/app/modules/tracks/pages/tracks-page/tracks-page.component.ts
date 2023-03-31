@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class TracksPageComponent {
 
+  generic1: string = 'La Mejor Música Del Mundo';
+  generic2: string = 'Lo Mejor De Electronica';
+
 }
