@@ -22,7 +22,12 @@ ng new [nombreCarpeta/proyecto] --routing --style=css {le indicamos si al routin
 ng serve (ng s) {indicamos que se inicie el servidor en localhost}
 ng s --port=4100 {cambiamos la direccion}
 ng s --host=0.0.0.0 --port=4100 {Le indicamos el puerto y que cree un host local, cualquier dispositivo en la red local podra conectarse utilizando la ip del pc donde se corre}
+ng g m [carpeta]/[componente] --flat {esto evita que se genere otra carpeta con el modulo, por eso el flat}
 
 # Apuntes
 Algunas veces cuando queremos importar cosas en nuestro angular del tipo json podemos tener problemas para es nos iremos a la parte de tsconfig.json en compilerOptions = "resolveJsonModule": true, listo
 
+Estructura de carpetas para escalabilidad
+Core => recursos o clases que no se necesite importar en un modulo
+Modules => Modulos que se generan con angular
+Shared => recursos que se comparten entre modulos, ejemplo, header, footer, sidebar.
