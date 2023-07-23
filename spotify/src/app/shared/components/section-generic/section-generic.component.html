@@ -1,0 +1,15 @@
+<div class="section--generic">
+  <h1 class="section--generic__title">{{title}}</h1>
+
+  <div class="section--generic__player--zone">
+    <!-- Aqui lo que hace con el ngClass es preguntar si se cumple que mode es igual a algo, se le aplica la clase, luego la coma es para preguntar por otra-->
+      <ul class="player--list" [ngClass]="{'card-small':mode === 'small','card-big':mode === 'big'}">
+          <li *ngFor="let track of dataTracks">
+              <!-- <app-card-player [track]="track" [mode]="mode"></app-card-player> -->
+              {{track.name}}
+              <!-- esta etiqueta muestra las cosas  para debugger rápido que aparece -->
+              {{track | json}}
+          </li>
+      </ul>
+  </div>
+</div>

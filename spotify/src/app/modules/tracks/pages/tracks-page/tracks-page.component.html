@@ -1,1 +1,7 @@
-<p>tracks-page works!</p>
+<div class="tracks-page">
+<!-- Section Top Small -->
+<!-- Va entre [] porque asi le decimos que busque enlace ese atributo al component.ts de generic -->
+<app-section-generic [dataTracks]="mockTracksList" [mode]="'small'" [title]="'¡La Mejor Música Del Mundo!'"></app-section-generic>
+<!-- Section Medium Bid -->
+<app-section-generic [dataTracks]="mockTracksList" [mode]="'big'" [title]="'¡Lo Mejor De Electronica!'"></app-section-generic>
+</div>
