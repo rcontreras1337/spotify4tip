@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as dataRaw from '../../../../data/tracks.json';
+import { TrackModel } from '@core/models/tracks.model';
 
 @Component({
   selector: 'app-tracks-page',
@@ -7,25 +9,16 @@ import { Component } from '@angular/core';
 })
 export class TracksPageComponent {
 
-  mockTracksList = [
-    {
-      name: 'BEBE (Oficial)'
-    },
-    {
-      name: 'BEBE (Oficial)'
-    },
-    {
-      name: 'BEBE (Oficial)'
-    },
-  ]
+  mockTracksList: Array<TrackModel> = [];
 
   constructor(){
 
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-
+    // desestructuramos con javascript y de este objeto obtenemos el data
+    const {data} : any = (dataRaw as any).default;
+    // console.log(data);
+    this.mockTracksList = data;
   }
 }
