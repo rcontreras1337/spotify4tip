@@ -1,11 +1,11 @@
 <div class="play-list-body">
   <ul class="play-list-table-header">
-      <li (click)="true">Nombre ❤</li>
-      <li (click)="true">álbum 🆗</li>
+      <li (click)="changeSort('name')">Nombre ❤</li>
+      <li (click)="changeSort('album')">álbum 🆗</li>
       <li>fecha incorporación 🍌😁</li>
       <li><i class="uil uil-clock-eight"></i></li>
   </ul>
-  <ul class="play-list-rows" *ngFor="let track of tracks">
+  <ul class="play-list-rows" *ngFor="let track of tracks | orderList:optionSort.property:optionSort.order">
       <li class="track-name">
         <!-- asignamos el valor a la variable del lado izquierdo, en este caso track, pasa a ser track -->
           <ng-container *ngTemplateOutlet="coverSection;context:{track:track}"></ng-container>
