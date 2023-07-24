@@ -1,7 +1,7 @@
 <div class="side-bar">
   <div><i class="uil uil-ellipsis-h"></i></div>
   <ul class="side-bar__list list-one">
-      <li   *ngFor="let item of mainMenu.defaultOptions">
+      <li  [routerLink]="item.router" [queryParams]="{key: 'value1'}" routerLinkActive="router-link-active"  *ngFor="let item of mainMenu.defaultOptions">
         <div class="list-wrapper-item">
               <i [ngClass]="['uil',item.icon]"></i>
               <!-- lo de arriba es equivalente a tener class="uil otra-clase" -->

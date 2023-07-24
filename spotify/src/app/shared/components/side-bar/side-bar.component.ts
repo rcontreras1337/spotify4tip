@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -13,7 +14,7 @@ export class SideBarComponent {
 
   customOptions: Array<any> = []
 
-  constructor() {}
+  constructor( private router: Router) {}
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -21,7 +22,7 @@ export class SideBarComponent {
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/', 'auth']
+        router: ['/']
       },
       {
         name: 'Buscar',
@@ -65,6 +66,17 @@ export class SideBarComponent {
         router: ['/']
       }
     ]
+  }
+
+  // Esta función utilizar la librería de router para navegar, se le pueden pasar valores y funcionar
+  goTo($event: any): void{
+    this.router.navigate(['/','favorites'], {
+      queryParams: {
+        key: 'Value1',
+        key1: 'Value2',
+        key2: 'Value3'
+      }
+    });
   }
 
 }
