@@ -11,6 +11,7 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title: String = 'spotify';
   name: String = 'Ruben Contreras';
+  description: String = 'Te Amo WAWA <3 mocha pexoxa! <3 _ <3'
   // status: string | number = 'fail';
 
   // car: Car = {
