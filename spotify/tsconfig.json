@@ -2,7 +2,8 @@
 /* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
-  "compilerOptions": {
+  "compilerOptions": { // Agregamos una propiedad para no tener problemas al importar los json
+  "resolveJsonModule": true, // Esta es la configuración que nos ayudara a importar el json donde queramos
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
