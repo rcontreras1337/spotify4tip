@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Scaffolding
+
+core: Recursos o clases que no se necesite importar en un modulo
+modules: Módulos generados por angular
+shared: Todos los recursos que se comparten entre módulos, por ejemplo el header, footer etc.
+
+
