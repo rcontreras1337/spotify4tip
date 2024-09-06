@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
   declarations: [ // Solo declaraciones, componentes, directivas, pipes
     AppComponent
   ],
-  imports: [ // Solo módulos
+  imports: [ // Solo modulos
     BrowserModule,
     AppRoutingModule
   ],
