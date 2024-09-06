@@ -6,8 +6,9 @@
     <ul class="player--list" [ngClass]="{'card-small':modeInHijo === 'small','card-big':modeInHijo === 'big'}">
       <li *ngFor="let player of dataTracksInHijo">
         <!-- El pil json transformara a un json el Object object -->
-        {{player | json}}
-        <!-- <app-card-player [track]="track" [mode]="mode"></app-card-player> -->
+        <!-- {{player | json}} -->
+        <!-- {{player.name}} -->
+        <app-card-player></app-card-player>
       </li>
     </ul>
   </div>
