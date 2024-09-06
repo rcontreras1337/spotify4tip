@@ -1,1 +1,35 @@
-<p>card-player works!</p>
+<!-- Diseño del modeIn (small)-->
+<div *ngIf="modeIn==='small'" class="card-player player-small">
+  <img [src]="trackIn?.cover" [alt]="trackIn?.name" class="cover">
+  <div class="content-player">
+    {{trackIn.name}}
+  </div>
+  <div class="buttons-player">
+    <button *ngIf="true" class="play-btn">
+      <i class="uil " [ngClass]="{'uil-play':true}"></i>
+    </button>
+    <button *ngIf="false" class="play-btn">
+      <i class="uil uil-play"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Diseño del modeIn (big)-->
+<div *ngIf="modeIn==='big'" class="card-player player-big">
+
+  <img appImgBroken
+ [src]="trackIn.cover" alt="" class="cover">
+
+  <div class="content-player">
+    <div class="title-trackIn">{{trackIn.name}}</div>
+    <div class="sub-title-trackIn">{{trackIn.name}}</div>
+  </div>
+  <div class="buttons-player">
+    <button *ngIf="true" class="play-btn">
+      <i class="uil " [ngClass]="{'uil-play':true}"></i>
+    </button>
+    <button *ngIf="false" class="play-btn">
+      <i class="uil uil-play"></i>
+    </button>
+  </div>
+</div>
