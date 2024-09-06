@@ -1,0 +1,14 @@
+<div class="section--generic">
+  <h1 class="section--generic__title">{{titleInHijo}}</h1>
+
+  <div class="section--generic__player--zone">
+    <!-- Aquí utilizamos el ngClass de manera condicional -->
+    <ul class="player--list" [ngClass]="{'card-small':modeInHijo === 'small','card-big':modeInHijo === 'big'}">
+      <li *ngFor="let player of dataTracksInHijo">
+        <!-- El pil json transformara a un json el Object object -->
+        {{player | json}}
+        <!-- <app-card-player [track]="track" [mode]="mode"></app-card-player> -->
+      </li>
+    </ul>
+  </div>
+</div>

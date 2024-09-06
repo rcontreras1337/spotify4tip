@@ -7,6 +7,7 @@
 
     *ngFor="let item of mainMenu.defaultOptions">
       <div class="list-wrapper-item">
+        <!-- aquí  contoneamos el estilo con ngClass -->
         <i [ngClass]="['uil',item.icon]"></i>
         <span class="side-bar__list list-label">{{item.name}}</span>
       </div>
