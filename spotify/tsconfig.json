@@ -26,11 +26,12 @@
       "@data/*":["src/app/data/*"],
       "@modules/*":["src/app/modules/*"],
       "@shared/*":["src/app/shared/*"],
+      "@assets/*":["src/assets/*"],
     },
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
