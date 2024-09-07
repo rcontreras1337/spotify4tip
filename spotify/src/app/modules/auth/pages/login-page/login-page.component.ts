@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '@modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginPageComponent {
   // El formGoup es el padre, en este caso el form y los controles serian los hijos dentro de este elemento
   formLogin: FormGroup = new FormGroup({});
-  constructor() { };
+  constructor(private _authService: AuthService) { };
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -28,7 +29,8 @@ export class LoginPageComponent {
   }
 
   sendLogin(): void {
-    const body = this.formLogin.value;
+    const { email, password } = this.formLogin.value;
+    this._authService.sendCredentials(email, password);
     // console.log(body);
   }
 
