@@ -1,6 +1,6 @@
 <!-- Diseño del modeIn (small)-->
 <div *ngIf="modeIn==='small'" class="card-player player-small">
-  <img appImgBroken [src]="trackIn.cover" [alt]="trackIn.name" class="cover">
+  <img appImgBroken [customImgIn]="'https://i.pinimg.com/236x/84/4d/95/844d957e12ca4a72863571505d79ece9.jpg'" [src]="trackIn.cover" [alt]="trackIn.name" class="cover">
   <div class="content-player">
     {{trackIn.name}}
   </div>
@@ -17,7 +17,7 @@
 <!-- Diseño del modeIn (big)-->
 <div *ngIf="modeIn==='big'" class="card-player player-big">
 
-  <img appImgBroken
+  <img appImgBroken [customImgIn]="'https://i.pinimg.com/236x/84/4d/95/844d957e12ca4a72863571505d79ece9.jpg'"
  [src]="trackIn.cover" alt="" class="cover">
 
   <div class="content-player">
