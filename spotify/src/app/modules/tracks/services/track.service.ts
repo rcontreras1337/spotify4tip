@@ -15,3 +15,7 @@ export class TrackService {
     this.mockTracksListApi$ = of(data);
   }
 }
+
+
+// el operador nex de RxJs esta constantemente pendiente de los nuevos cambios
+// eventos, lo que provoca una actualización en tiempo real
