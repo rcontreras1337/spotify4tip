@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
 import { SearchService } from '@modules/history/services/search.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-history-page',
@@ -8,17 +9,18 @@ import { SearchService } from '@modules/history/services/search.service';
   styleUrl: './history-page.component.css'
 })
 export class HistoryPageComponent {
-  listResults: TrackModel[] = [];
+  listResults$: Observable<any> = of([]);
 
   constructor(private sarchService: SearchService){}
 
   recibirData(event: string):void {
     console.log('estoy en el padre', event);
-    this.sarchService.searchTracks$(event)
-      .subscribe(({ data }) => {
-        console.log('prueba', data);
-        this.listResults = data;
-      });
+    this.listResults$ = this.sarchService.searchTracks$(event);
+    // this.sarchService.searchTracks$(event)
+    //   .subscribe(({ data }) => {
+    //     console.log('prueba', data);
+    //     this.listResults = data;
+    //   });
   }
 
 
