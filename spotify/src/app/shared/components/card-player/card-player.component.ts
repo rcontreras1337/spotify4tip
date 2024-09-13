@@ -20,7 +20,7 @@ export class CardPlayerComponent {
 
   sendPlay(track: TrackModel): void{
     // Enviar Canción al reproductor
-    this._multimediaService.callBack.emit(track);
+    this._multimediaService.trackInfo$.next(track)
   };
 
 }
