@@ -7,11 +7,13 @@ import { Subscription } from 'rxjs';
   templateUrl: './tracks-page.component.html',
   styleUrl: './tracks-page.component.css'
 })
-export class TracksPageComponent implements OnDestroy {
+export class TracksPageComponent{
+
+  // Cuando los servicios vienen desde HttpCliente como suscripciones
+  // Angular de forma automática se des suscribe
 
   mockTracksList: TrackModel[] = [];
   mockTracksListApi: TrackModel[] = [];
-  listObservers$: Array<Subscription> = [];
 
   constructor(private _trackService: TrackService) { }
   ngOnInit(): void {
@@ -19,15 +21,14 @@ export class TracksPageComponent implements OnDestroy {
     this.subscribirseRandomTracks();
   }
 
-  ngOnDestroy(): void {
-    this.listObservers$.forEach(u => u.unsubscribe());
-  }
 
   subscribirseTracks(): void {
     this._trackService.getAllTracks$()
       .subscribe(response => {
         // console.log({ response });
         this.mockTracksList = response;
+      }, err => {
+        console.log(err);
       });
   }
   subscribirseRandomTracks(): void {

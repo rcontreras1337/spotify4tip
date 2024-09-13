@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
-import { map, mergeMap, Observable, of, tap } from 'rxjs';
+import { catchError, map, mergeMap, Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
@@ -39,7 +39,11 @@ export class TrackService {
         mergeMap(({ data }: any) => {
           return this.skipById(data, 1);
         }),
-        tap(data => console.log('finalización', data))
+        tap(data => console.log('finalización', data)),
+        catchError((error) => {
+          console.log('Algo paso, error', error);
+          return of([]);
+        })
         // map((dataRevertida) => { // TODO: filtramos por parámetros
         //   return dataRevertida.filter(
         //     (track: TrackModel) => track._id !== 1

@@ -19,7 +19,12 @@ const routes: Routes = [
   {
     path: 'history',
     loadChildren: () => import('@modules/history/history.module').then(m => m.HistoryModule)
-  }
+  },
+  {
+    path: '**',
+    redirectTo: '/tracks'
+  },
+
 ];
 
 @NgModule({
