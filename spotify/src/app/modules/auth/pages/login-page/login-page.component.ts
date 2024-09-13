@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '@modules/auth/services/auth.service';
 
 
@@ -13,7 +14,9 @@ export class LoginPageComponent {
   formLogin: FormGroup = new FormGroup({});
   errorSesion: boolean = false;
 
-  constructor(private _authService: AuthService) { };
+  constructor(private _authService: AuthService,
+    private _router: Router
+  ) { };
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -38,6 +41,7 @@ export class LoginPageComponent {
     this._authService.sendCredentials(email, password)
       .subscribe((responseOk) => {
         this.errorSesion = false;
+        this._router.navigate(['/','tracks'])
       }, error => { // 400 > invalido
         this.errorSesion = true;
       }
