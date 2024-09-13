@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
-import { map, Observable, of } from 'rxjs';
+import { map, mergeMap, Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
@@ -35,14 +35,16 @@ export class TrackService {
 
     return this.httpClient.get(`${this.URL}/tracks`)
       .pipe(
-        map(({ data }: any) => { // TODO devolvemos la lista revertida
-          return data.reverse();
+        tap(data => console.log('inicio pipe consulta http', data)),
+        mergeMap(({ data }: any) => {
+          return this.skipById(data, 1);
         }),
-        map((dataRevertida) => { // TODO: filtramos por parametros
-          return dataRevertida.filter(
-            (track: TrackModel) => track._id !== 1
-          )
-        })
+        tap(data => console.log('finalización', data))
+        // map((dataRevertida) => { // TODO: filtramos por parámetros
+        //   return dataRevertida.filter(
+        //     (track: TrackModel) => track._id !== 1
+        //   )
+        // })
       );
   }
 
