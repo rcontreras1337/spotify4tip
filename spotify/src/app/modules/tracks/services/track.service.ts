@@ -1,21 +1,56 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TrackModel } from '@core/models/tracks.model';
-import { Observable, of } from 'rxjs';
-import * as dataRaw from '../../../data/tracks.json';
+import { map, Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrackService {
-  // Cuando son observables se les pone un signo dolar
-  // Utiliza operadores
-  mockTracksListApi$: Observable<TrackModel[]> = of([]);
-  constructor() {
-    const { data }: any = (dataRaw as any).default;
-    this.mockTracksListApi$ = of(data);
+
+  private readonly URL: string = environment.api;
+
+  constructor(private httpClient: HttpClient) { }
+
+  /**
+   *
+   * @returns devuelve todas las canciones!
+   */
+  getAllTracks$(): Observable<TrackModel[]>{
+
+    return this.httpClient.get(`${this.URL}/tracks`)
+      .pipe(map(
+        ({data}: any) => {
+          return data;
+        }
+      ));
   }
+
+  /**
+   *
+   * @returns devuelve todas las canciones random!
+   */
+  getAllRamdonTracks$(): Observable<TrackModel[]> {
+
+    return this.httpClient.get(`${this.URL}/tracks`)
+      .pipe(
+        map(({ data }: any) => { // TODO devolvemos la lista revertida
+          return data.reverse();
+        }),
+        map((dataRevertida) => { // TODO: filtramos por parametros
+          return dataRevertida.filter(
+            (track: TrackModel) => track._id !== 1
+          )
+        })
+      );
+  }
+
+  private skipById(listTracks: TrackModel[] , id: number): Promise<TrackModel[]>{
+    return new Promise((resolve, reject) => {
+      const listTmp = listTracks.filter( a => a._id != id);
+      resolve(listTmp);
+    });
+  }
+
 }
-
-
-// el operador nex de RxJs esta constantemente pendiente de los nuevos cambios
-// eventos, lo que provoca una actualización en tiempo real

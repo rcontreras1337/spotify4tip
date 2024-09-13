@@ -15,9 +15,8 @@ export class TracksPageComponent implements OnDestroy {
 
   constructor(private _trackService: TrackService) { }
   ngOnInit(): void {
-
-
     this.subscribirseTracks();
+    this.subscribirseRandomTracks();
   }
 
   ngOnDestroy(): void {
@@ -25,7 +24,18 @@ export class TracksPageComponent implements OnDestroy {
   }
 
   subscribirseTracks(): void {
-
+    this._trackService.getAllTracks$()
+      .subscribe(response => {
+        // console.log({ response });
+        this.mockTracksList = response;
+      });
+  }
+  subscribirseRandomTracks(): void {
+    this._trackService.getAllRamdonTracks$()
+      .subscribe(response => {
+        // console.log({ response });
+        this.mockTracksListApi = response;
+      });
   }
 
 
