@@ -1,4 +1,3 @@
-
 <div class="media-player">
   <div class="media-player--wrapper ">
     <!--Zona del artista-->
@@ -20,7 +19,7 @@
 
 <ng-template #artistZone>
   <div class="artist-inside" *ngIf="_multimediaService.trackInfo$ | async as mockCover">
-<!-- <div class="artist-inside" *ngIf="_multimediaService.trackInfo$ | async as mockCover"> -->
+
     <img [src]="mockCover.cover" alt="" class="cover">
     <div class="track-info">
       <h3 class="track-title">{{mockCover.name}}</h3>
@@ -35,7 +34,7 @@
 </ng-template>
 
 <ng-template #playerZone>
-  <!-- <div class="player-controls-inside">
+  <div class="player-controls-inside">
     <div class="buttons-media">
       <button class="arrow btn">
         <i class="uil uil-previous"></i>
@@ -52,7 +51,7 @@
       </button>
     </div>
     <div class="media-linetime">
-
+        <!-- este tipo de subscription es en el front y no necesita ser destruida -->
       <div class="time">{{_multimediaService.timeElapsed$ | async}}</div>
       <span #progressBar (click)="handlePosition($event)" class="time-progress">
         <span class="time-progress-live" [style.width]="(_multimediaService.playerPercentage$ | async)+'%'">
@@ -60,7 +59,7 @@
       </span>
       <div class="time">{{_multimediaService.timeRemaining$ | async}}</div>
     </div>
-  </div> -->
+  </div>
 </ng-template>
 
 <ng-template #playerAudio>
